@@ -8,7 +8,7 @@ using System.Text;
 
 namespace ConvertPdfToImage {
     class Program {
-        const string GS = @"C:\Program Files\gs\gs9.15\bin\gswin64c";
+        const string GS = @"C:\Program Files\gs\gs9.20\bin\gswin64c";
         const string OUTDIR = @"C:\Scratch\ECG\AliveCor ECGs\Images";
 
         static void Main(string[] args) {
