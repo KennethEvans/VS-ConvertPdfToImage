@@ -1,8 +1,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConvertPdfToImage", "ConvertPdfToImage\ConvertPdfToImage.csproj", "{A68EB192-01EB-4825-ACF8-B68860F1F0C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SavePdfImage", "SavePdfImage\SavePdfImage.csproj", "{DCD13614-7AF8-4679-AB4F-808BAC05DDD2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,8 +16,15 @@ Global
 		{A68EB192-01EB-4825-ACF8-B68860F1F0C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A68EB192-01EB-4825-ACF8-B68860F1F0C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A68EB192-01EB-4825-ACF8-B68860F1F0C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCD13614-7AF8-4679-AB4F-808BAC05DDD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCD13614-7AF8-4679-AB4F-808BAC05DDD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCD13614-7AF8-4679-AB4F-808BAC05DDD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCD13614-7AF8-4679-AB4F-808BAC05DDD2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {58442300-CDB0-48A6-B248-53DA0CF36655}
 	EndGlobalSection
 EndGlobal
