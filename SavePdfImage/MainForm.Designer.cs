@@ -33,15 +33,13 @@
             this.labelDest = new System.Windows.Forms.Label();
             this.textBoxDest = new System.Windows.Forms.TextBox();
             this.buttonFileBrowse = new System.Windows.Forms.Button();
-            this.labelName = new System.Windows.Forms.Label();
-            this.textBoxName = new System.Windows.Forms.TextBox();
             this.labelRes = new System.Windows.Forms.Label();
             this.textBoxRes = new System.Windows.Forms.TextBox();
             this.textBoxInfo = new System.Windows.Forms.TextBox();
             this.flowLayoutPanelButtons = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonSettings = new System.Windows.Forms.Button();
-            this.buttonSave = new System.Windows.Forms.Button();
             this.buttonQuit = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
             this.tableLayoutPanelTop.SuspendLayout();
             this.groupBoxParam.SuspendLayout();
             this.tableLayoutPanelGroupParam.SuspendLayout();
@@ -82,7 +80,7 @@
             this.groupBoxParam.Margin = new System.Windows.Forms.Padding(5, 10, 5, 10);
             this.groupBoxParam.Name = "groupBoxParam";
             this.groupBoxParam.Padding = new System.Windows.Forms.Padding(10, 2, 3, 2);
-            this.groupBoxParam.Size = new System.Drawing.Size(1613, 215);
+            this.groupBoxParam.Size = new System.Drawing.Size(1613, 173);
             this.groupBoxParam.TabIndex = 1;
             this.groupBoxParam.TabStop = false;
             this.groupBoxParam.Text = "Parameters";
@@ -103,7 +101,7 @@
             this.tableLayoutPanelGroupParam.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanelGroupParam.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanelGroupParam.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelGroupParam.Size = new System.Drawing.Size(1600, 180);
+            this.tableLayoutPanelGroupParam.Size = new System.Drawing.Size(1600, 138);
             this.tableLayoutPanelGroupParam.TabIndex = 2;
             // 
             // tableLayoutPanelDest
@@ -121,8 +119,6 @@
             this.tableLayoutPanelDest.Controls.Add(this.labelDest, 0, 1);
             this.tableLayoutPanelDest.Controls.Add(this.textBoxDest, 1, 1);
             this.tableLayoutPanelDest.Controls.Add(this.buttonFileBrowse, 2, 1);
-            this.tableLayoutPanelDest.Controls.Add(this.labelName, 0, 2);
-            this.tableLayoutPanelDest.Controls.Add(this.textBoxName, 1, 2);
             this.tableLayoutPanelDest.Controls.Add(this.labelRes, 0, 3);
             this.tableLayoutPanelDest.Controls.Add(this.textBoxRes, 1, 3);
             this.tableLayoutPanelDest.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -134,7 +130,7 @@
             this.tableLayoutPanelDest.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanelDest.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanelDest.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelDest.Size = new System.Drawing.Size(1594, 176);
+            this.tableLayoutPanelDest.Size = new System.Drawing.Size(1594, 134);
             this.tableLayoutPanelDest.TabIndex = 2;
             // 
             // labelSrc
@@ -153,12 +149,11 @@
             // textBoxSrc
             // 
             this.textBoxSrc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxSrc.Location = new System.Drawing.Point(172, 2);
+            this.textBoxSrc.Location = new System.Drawing.Point(168, 2);
             this.textBoxSrc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxSrc.Name = "textBoxSrc";
-            this.textBoxSrc.Size = new System.Drawing.Size(1294, 38);
+            this.textBoxSrc.Size = new System.Drawing.Size(1298, 38);
             this.textBoxSrc.TabIndex = 9;
-            this.textBoxSrc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // buttonSrcBrowse
             // 
@@ -183,18 +178,18 @@
             this.labelDest.BackColor = System.Drawing.SystemColors.Control;
             this.labelDest.Location = new System.Drawing.Point(3, 46);
             this.labelDest.Name = "labelDest";
-            this.labelDest.Size = new System.Drawing.Size(124, 46);
+            this.labelDest.Size = new System.Drawing.Size(109, 46);
             this.labelDest.TabIndex = 0;
-            this.labelDest.Text = "Dest Dir:";
+            this.labelDest.Text = "Output:";
             this.labelDest.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // textBoxDest
             // 
             this.textBoxDest.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxDest.Location = new System.Drawing.Point(172, 48);
+            this.textBoxDest.Location = new System.Drawing.Point(168, 48);
             this.textBoxDest.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxDest.Name = "textBoxDest";
-            this.textBoxDest.Size = new System.Drawing.Size(1294, 38);
+            this.textBoxDest.Size = new System.Drawing.Size(1298, 38);
             this.textBoxDest.TabIndex = 1;
             // 
             // buttonFileBrowse
@@ -212,35 +207,13 @@
             this.buttonFileBrowse.UseVisualStyleBackColor = false;
             this.buttonFileBrowse.Click += new System.EventHandler(this.onBrowseDestClick);
             // 
-            // labelName
-            // 
-            this.labelName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelName.AutoSize = true;
-            this.labelName.BackColor = System.Drawing.SystemColors.Control;
-            this.labelName.Location = new System.Drawing.Point(3, 92);
-            this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(163, 42);
-            this.labelName.TabIndex = 3;
-            this.labelName.Text = "Dest Name:";
-            this.labelName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // textBoxName
-            // 
-            this.textBoxName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxName.Location = new System.Drawing.Point(172, 94);
-            this.textBoxName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(1294, 38);
-            this.textBoxName.TabIndex = 4;
-            // 
             // labelRes
             // 
             this.labelRes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.labelRes.AutoSize = true;
             this.labelRes.BackColor = System.Drawing.SystemColors.Control;
-            this.labelRes.Location = new System.Drawing.Point(3, 134);
+            this.labelRes.Location = new System.Drawing.Point(3, 92);
             this.labelRes.Name = "labelRes";
             this.labelRes.Size = new System.Drawing.Size(159, 42);
             this.labelRes.TabIndex = 6;
@@ -250,21 +223,21 @@
             // textBoxRes
             // 
             this.textBoxRes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxRes.Location = new System.Drawing.Point(172, 136);
+            this.textBoxRes.Location = new System.Drawing.Point(168, 94);
             this.textBoxRes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxRes.Name = "textBoxRes";
-            this.textBoxRes.Size = new System.Drawing.Size(1294, 38);
+            this.textBoxRes.Size = new System.Drawing.Size(1298, 38);
             this.textBoxRes.TabIndex = 7;
             // 
             // textBoxInfo
             // 
             this.textBoxInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxInfo.Location = new System.Drawing.Point(3, 237);
+            this.textBoxInfo.Location = new System.Drawing.Point(3, 195);
             this.textBoxInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxInfo.Multiline = true;
             this.textBoxInfo.Name = "textBoxInfo";
             this.textBoxInfo.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxInfo.Size = new System.Drawing.Size(1617, 774);
+            this.textBoxInfo.Size = new System.Drawing.Size(1617, 816);
             this.textBoxInfo.TabIndex = 4;
             // 
             // flowLayoutPanelButtons
@@ -295,20 +268,7 @@
             this.buttonSettings.TabIndex = 4;
             this.buttonSettings.Text = "Settings";
             this.buttonSettings.UseVisualStyleBackColor = true;
-            // 
-            // buttonSave
-            // 
-            this.buttonSave.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonSave.AutoSize = true;
-            this.buttonSave.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonSave.Location = new System.Drawing.Point(234, 2);
-            this.buttonSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(78, 42);
-            this.buttonSave.TabIndex = 2;
-            this.buttonSave.Text = "Quit";
-            this.buttonSave.UseVisualStyleBackColor = true;
-            this.buttonSave.Click += new System.EventHandler(this.onQuitClick);
+            this.buttonSettings.Click += new System.EventHandler(this.onSettingsClick);
             // 
             // buttonQuit
             // 
@@ -323,6 +283,20 @@
             this.buttonQuit.Text = "Save";
             this.buttonQuit.UseVisualStyleBackColor = true;
             this.buttonQuit.Click += new System.EventHandler(this.onSaveClick);
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonSave.AutoSize = true;
+            this.buttonSave.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonSave.Location = new System.Drawing.Point(234, 2);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(78, 42);
+            this.buttonSave.TabIndex = 2;
+            this.buttonSave.Text = "Quit";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.onQuitClick);
             // 
             // MainForm
             // 
@@ -356,8 +330,6 @@
         private System.Windows.Forms.Label labelDest;
         private System.Windows.Forms.TextBox textBoxDest;
         private System.Windows.Forms.Button buttonFileBrowse;
-        private System.Windows.Forms.Label labelName;
-        private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.Label labelRes;
         private System.Windows.Forms.TextBox textBoxRes;
         private System.Windows.Forms.TextBox textBoxInfo;
