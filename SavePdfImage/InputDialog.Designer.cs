@@ -155,6 +155,7 @@
             this.buttonGsBrowse.TabIndex = 10;
             this.buttonGsBrowse.Text = "Browse";
             this.buttonGsBrowse.UseVisualStyleBackColor = false;
+            this.buttonGsBrowse.Click += new System.EventHandler(this.onBrowseGhostScriptClick);
             // 
             // flowLayoutPanelButtons
             // 

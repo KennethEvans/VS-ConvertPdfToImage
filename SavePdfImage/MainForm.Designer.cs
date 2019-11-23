@@ -306,6 +306,7 @@
             this.Controls.Add(this.tableLayoutPanelTop);
             this.Name = "MainForm";
             this.Text = "SavePdfImage";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.tableLayoutPanelTop.ResumeLayout(false);
             this.tableLayoutPanelTop.PerformLayout();
             this.groupBoxParam.ResumeLayout(false);

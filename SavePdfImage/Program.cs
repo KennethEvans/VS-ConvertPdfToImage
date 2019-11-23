@@ -26,7 +26,8 @@ namespace SavePdfImage {
                 string ext = fileInfo.Extension;
                 string outName = name.Substring(0, name.Length - ext.Length)
                     + ".png";
-                mainForm.Outpath = dir + @"\" + outName;
+                mainForm.PdfPath = filePath;
+                //mainForm.Outpath = dir + @"\" + outName;
             }
             Application.Run(mainForm);
         }

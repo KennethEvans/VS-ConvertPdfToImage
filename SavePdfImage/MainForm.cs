@@ -8,27 +8,59 @@ namespace SavePdfImage {
     public partial class MainForm : Form {
         public static readonly String NL = Environment.NewLine;
         private static readonly string DEFAULT_NAME = "SavePdfImage.png";
-        private static readonly string TEST_PDF = @"C:\Users\evans\Documents\Family Historian Projects\Evans\Public\Evans-Descendant-2019-11-21.PDFCreator.pdf";
+        private static readonly string TEST_PDF = "";
+        //private static readonly string TEST_PDF = @"C:\Users\evans\Documents\Family Historian Projects\Evans\Public\Evans-Descendant-2019-11-21.PDFCreator.pdf";
         public string gsPath = @"C:\Program Files\gs\gs9.20\bin\gswin64c";
-        private string outpath = @"C:\Scratch\AAA\SavePdfImage" + @"\" + DEFAULT_NAME;
-        public string pdfPath = TEST_PDF;
+        private string outpath =
+            Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
+            + @"\" + DEFAULT_NAME;
+        private string pdfPath = "";
         public double resolution = 300;
 
-        public string Outpath
+        public string OutPath
         {
             get => outpath;
             set
             {
                 outpath = value;
                 textBoxDest.Text = value;
+                textBoxDest.SelectionStart = textBoxDest.Text.Length;
+                textBoxDest.SelectionLength = 0;
+            }
+        }
+
+        public string PdfPath
+        {
+            get => pdfPath;
+            set
+            {
+                pdfPath = value;
+                textBoxSrc.Text = value;
+                textBoxSrc.SelectionStart = textBoxSrc.Text.Length;
+                textBoxSrc.SelectionLength = 0;
+                string outDir = Path.GetDirectoryName(OutPath);
+                string outName = Path.GetFileName(pdfPath);
+                string outExt = Path.GetExtension(pdfPath);
+                OutPath = outDir + @"\" + outName.Substring(0,
+                    outName.Length - outExt.Length) + ".png";
             }
         }
 
         public MainForm() {
             InitializeComponent();
 
-            if (pdfPath != null) textBoxSrc.Text = pdfPath;
-            if (Outpath != null) textBoxDest.Text = Outpath;
+            string savedOutPath = Properties.Settings.Default.OutputDir;
+            if (savedOutPath != null && savedOutPath.Length > 0) {
+                OutPath = savedOutPath + @"\" + DEFAULT_NAME;
+            }
+            double savedResolution = Properties.Settings.Default.Resolution;
+            if (savedResolution > 0) {
+                resolution = savedResolution;
+            }
+
+            if (OutPath != null) textBoxDest.Text = OutPath;
+            // Do this after OutPath
+            if (PdfPath != null) textBoxSrc.Text = PdfPath;
             textBoxRes.Text = resolution.ToString();
         }
 
@@ -42,13 +74,48 @@ namespace SavePdfImage {
             }
             string outPath = textBoxDest.Text;
             string outPathDir = Path.GetDirectoryName(outPath);
+            string outPathExt = Path.GetExtension(outPath);
             if (!Directory.Exists(outPathDir)) {
                 textBoxInfo.AppendText(NL + "Directory does not exist: "
                     + outPathDir + NL + NL);
                 return;
             }
+            if (!outPathExt.ToLower().Equals(".png")) {
+                textBoxInfo.AppendText(NL + "Output file extension must be .png: "
+                    + outPathDir + NL + NL);
+                return;
+            }
+            // Check if files with this prefix exist
+            string outPathPrefix = outPath.Substring(0,
+                outPath.Length - outPathExt.Length);
+            string[] existingFiles = Directory.GetFiles(outPathDir);
+            bool prompt = false;
+            int nFiles = 0;
+            foreach (string file in existingFiles) {
+                if (file.StartsWith(outPathPrefix + ".") &&
+                    !outPathPrefix.ToLower().EndsWith(".png")) {
+                    nFiles++;
+                    prompt = true;
+                    break;
+                }
+            }
+            if (prompt) {
+                DialogResult res = MessageBox.Show(nFiles
+                    + " file[s] of this pattern:" + NL
+                    + outPathPrefix + ".*.png" + NL
+                    + "already exist." + NL + "Do you want to continue?",
+              "Overwrite?", MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+              MessageBoxDefaultButton.Button2);
+                if (res == DialogResult.No) {
+                    textBoxInfo.AppendText(NL + "Aborted" + NL + NL);
+                    return;
+                }
+            }
             string resolution = textBoxRes.Text;
             try {
+                // Add format for multiple images
+                outPath = outPath.Substring(0, outPath.Length - outPathExt.Length)
+                + ".%02d.png";
                 Process process = new Process();
                 process.StartInfo.CreateNoWindow = true;
                 process.StartInfo.UseShellExecute = false;
@@ -90,14 +157,14 @@ namespace SavePdfImage {
                     textBoxInfo.AppendText(NL);
                     textBoxInfo.AppendText("Wrote " + outPath + NL);
                     textBoxInfo.AppendText(NL);
-                    textBoxInfo.AppendText("All Done");
+                    textBoxInfo.AppendText("All Done" + NL);
                 } else {
                     textBoxInfo.AppendText(NL);
-                    textBoxInfo.AppendText("Aborted");
+                    textBoxInfo.AppendText("Aborted" + NL);
                 }
             } catch (Exception ex) {
                 textBoxInfo.AppendText(NL);
-                textBoxInfo.AppendText("Falied to extract image" + NL);
+                textBoxInfo.AppendText("Failed to extract image" + NL);
                 textBoxInfo.AppendText(ex.Message + NL);
             }
             textBoxInfo.AppendText(NL);
@@ -118,21 +185,7 @@ namespace SavePdfImage {
                 dlg.InitialDirectory = Path.GetDirectoryName(initialPath);
             }
             if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK) {
-                textBoxSrc.Text = dlg.FileName;
-            }
-        }
-
-        private void onBrowseDestClick0(object sender, EventArgs e) {
-            string outPath = textBoxDest.Text;
-            FolderBrowserDialog dlg = new FolderBrowserDialog();
-            dlg.Description = "Select the Destination Folder";
-            // Set initial directory
-            if (File.Exists(outPath)) {
-                dlg.RootFolder = Environment.SpecialFolder.Desktop;
-                dlg.SelectedPath = outPath;
-            }
-            if (dlg.ShowDialog() == DialogResult.OK) {
-                textBoxDest.Text = dlg.SelectedPath;
+                PdfPath = dlg.FileName;
             }
         }
 
@@ -147,7 +200,7 @@ namespace SavePdfImage {
                 dlg.InitialDirectory = Path.GetDirectoryName(initialPath);
             }
             if (dlg.ShowDialog() == DialogResult.OK) {
-                textBoxDest.Text = dlg.FileName;
+                OutPath = dlg.FileName;
             }
         }
 
@@ -160,6 +213,26 @@ namespace SavePdfImage {
                     + gsPath + NL);
             }
             dlg.Dispose();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e) {
+            if (gsPath != null && gsPath.Length > 0) {
+                Properties.Settings.Default.GhostScriptExe = gsPath;
+            }
+            string text = textBoxDest.Text;
+            if (text != null && text.Length > 0) {
+                Properties.Settings.Default.OutputDir =
+                    Path.GetDirectoryName(text);
+            }
+            text = textBoxRes.Text;
+            if (text != null && text.Length > 0) {
+                try {
+                    Properties.Settings.Default.Resolution = Double.Parse(text);
+                } catch (Exception ex) {
+                    // Do nothing
+                }
+            }
+            Properties.Settings.Default.Save();
         }
     }
 }

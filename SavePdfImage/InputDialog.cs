@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SavePdfImage {
@@ -36,6 +29,18 @@ namespace SavePdfImage {
             gsPath = textBoxGs.Text;
             DialogResult = DialogResult.OK;
             Close();
+        }
+
+        private void onBrowseGhostScriptClick(object sender, EventArgs e) {
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Title = "Select a GhostScript executable";
+            dlg.Filter = "EXE File|*.exe";
+            // Set initial directory to Program Files
+            dlg.InitialDirectory =
+                 Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
+            if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK) {
+                textBoxGs.Text = dlg.FileName;
+            }
         }
     }
 }
