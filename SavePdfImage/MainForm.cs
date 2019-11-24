@@ -65,11 +65,19 @@ namespace SavePdfImage {
         }
 
         private void onSaveClick(object sender, EventArgs e) {
-            string inName = textBoxSrc.Text;
-            textBoxInfo.AppendText("Processing " + inName + NL);
-            if (!File.Exists(inName)) {
-                textBoxInfo.AppendText(NL + "Does not exist: " + inName
-                    + NL + NL);
+            string pdfPath = textBoxSrc.Text;
+            textBoxInfo.AppendText("Processing " + pdfPath + NL);
+            if (!File.Exists(pdfPath)) {
+                textBoxInfo.AppendText(NL + "Does not exist: " + pdfPath
+                    + NL);
+                textBoxInfo.AppendText(NL + "Aborted" + NL + NL);
+                return;
+            }
+            string inExt = Path.GetExtension(pdfPath);
+            if (!inExt.ToLower().Equals(".pdf")) {
+                textBoxInfo.AppendText(NL + "PDF file extension must be .pdf: "
+                    + inExt + NL);
+                textBoxInfo.AppendText(NL + "Aborted" + NL + NL);
                 return;
             }
             string outPath = textBoxDest.Text;
@@ -77,12 +85,14 @@ namespace SavePdfImage {
             string outPathExt = Path.GetExtension(outPath);
             if (!Directory.Exists(outPathDir)) {
                 textBoxInfo.AppendText(NL + "Directory does not exist: "
-                    + outPathDir + NL + NL);
+                    + outPathDir + NL);
+                textBoxInfo.AppendText(NL + "Aborted" + NL + NL);
                 return;
             }
             if (!outPathExt.ToLower().Equals(".png")) {
                 textBoxInfo.AppendText(NL + "Output file extension must be .png: "
-                    + outPathDir + NL + NL);
+                    + outPathDir + NL);
+                textBoxInfo.AppendText(NL + "Aborted" + NL + NL);
                 return;
             }
             // Check if files with this prefix exist
@@ -126,7 +136,7 @@ namespace SavePdfImage {
                 process.StartInfo.Arguments =
                     "-dNOPAUSE -dBATCH -r" + resolution
                     + " -sDEVICE=png16m"
-                    + " -sOutputFile=\"" + outPath + "\" \"" + inName + "\"";
+                    + " -sOutputFile=\"" + outPath + "\" \"" + pdfPath + "\"";
 
                 textBoxInfo.AppendText(process.StartInfo.FileName + " "
                     + process.StartInfo.Arguments + NL);
@@ -156,11 +166,9 @@ namespace SavePdfImage {
                 if (process.ExitCode == 0) {
                     textBoxInfo.AppendText(NL);
                     textBoxInfo.AppendText("Wrote " + outPath + NL);
-                    textBoxInfo.AppendText(NL);
-                    textBoxInfo.AppendText("All Done" + NL);
+                    textBoxInfo.AppendText(NL + "All Done" + NL);
                 } else {
-                    textBoxInfo.AppendText(NL);
-                    textBoxInfo.AppendText("Aborted" + NL);
+                    textBoxInfo.AppendText(NL + "Aborted" + NL);
                 }
             } catch (Exception ex) {
                 textBoxInfo.AppendText(NL);
