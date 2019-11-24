@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InputDialog));
             this.tableLayoutPanelTop = new System.Windows.Forms.TableLayoutPanel();
             this.groupBoxParam = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanelGroupParam = new System.Windows.Forms.TableLayoutPanel();
@@ -206,6 +207,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1194, 206);
             this.Controls.Add(this.tableLayoutPanelTop);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "InputDialog";
             this.Text = "Settings";
             this.tableLayoutPanelTop.ResumeLayout(false);

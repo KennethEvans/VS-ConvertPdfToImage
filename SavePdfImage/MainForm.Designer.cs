@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tableLayoutPanelTop = new System.Windows.Forms.TableLayoutPanel();
             this.groupBoxParam = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanelGroupParam = new System.Windows.Forms.TableLayoutPanel();
@@ -304,6 +305,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1623, 1063);
             this.Controls.Add(this.tableLayoutPanelTop);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "SavePdfImage";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
