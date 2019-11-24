@@ -39,7 +39,11 @@ namespace SavePdfImage {
             dlg.InitialDirectory =
                  Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
             if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK) {
-                textBoxGs.Text = dlg.FileName;
+                GsPath = dlg.FileName;
+                textBoxGs.Text = GsPath;
+                mainForm.gsPath = GsPath;
+                Properties.Settings.Default.GhostScriptExe = GsPath;
+                Properties.Settings.Default.Save();
             }
         }
     }

@@ -26,14 +26,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tableLayoutPanelTop = new System.Windows.Forms.TableLayoutPanel();
             this.groupBoxParam = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanelGroupParam = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanelDest = new System.Windows.Forms.TableLayoutPanel();
-            this.labelSrc = new System.Windows.Forms.Label();
-            this.textBoxSrc = new System.Windows.Forms.TextBox();
-            this.buttonSrcBrowse = new System.Windows.Forms.Button();
-            this.labelDest = new System.Windows.Forms.Label();
-            this.textBoxDest = new System.Windows.Forms.TextBox();
-            this.buttonFileBrowse = new System.Windows.Forms.Button();
+            this.tableLayoutPanelParam = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanelParamTop = new System.Windows.Forms.TableLayoutPanel();
+            this.labelPdf = new System.Windows.Forms.Label();
+            this.textBoxPdf = new System.Windows.Forms.TextBox();
+            this.buttonPdfBrowse = new System.Windows.Forms.Button();
+            this.labelOut = new System.Windows.Forms.Label();
+            this.textBoxOut = new System.Windows.Forms.TextBox();
+            this.buttonOutBrowse = new System.Windows.Forms.Button();
             this.labelRes = new System.Windows.Forms.Label();
             this.textBoxRes = new System.Windows.Forms.TextBox();
             this.textBoxInfo = new System.Windows.Forms.TextBox();
@@ -43,8 +43,8 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.tableLayoutPanelTop.SuspendLayout();
             this.groupBoxParam.SuspendLayout();
-            this.tableLayoutPanelGroupParam.SuspendLayout();
-            this.tableLayoutPanelDest.SuspendLayout();
+            this.tableLayoutPanelParam.SuspendLayout();
+            this.tableLayoutPanelParamTop.SuspendLayout();
             this.flowLayoutPanelButtons.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,7 +75,7 @@
             this.groupBoxParam.AutoSize = true;
             this.groupBoxParam.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBoxParam.BackColor = System.Drawing.SystemColors.Control;
-            this.groupBoxParam.Controls.Add(this.tableLayoutPanelGroupParam);
+            this.groupBoxParam.Controls.Add(this.tableLayoutPanelParam);
             this.groupBoxParam.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBoxParam.Location = new System.Drawing.Point(5, 10);
             this.groupBoxParam.Margin = new System.Windows.Forms.Padding(5, 10, 5, 10);
@@ -86,127 +86,127 @@
             this.groupBoxParam.TabStop = false;
             this.groupBoxParam.Text = "Parameters";
             // 
-            // tableLayoutPanelGroupParam
+            // tableLayoutPanelParam
             // 
-            this.tableLayoutPanelGroupParam.AutoSize = true;
-            this.tableLayoutPanelGroupParam.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanelGroupParam.BackColor = System.Drawing.SystemColors.Control;
-            this.tableLayoutPanelGroupParam.ColumnCount = 1;
-            this.tableLayoutPanelGroupParam.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelGroupParam.Controls.Add(this.tableLayoutPanelDest, 0, 0);
-            this.tableLayoutPanelGroupParam.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelGroupParam.Location = new System.Drawing.Point(10, 33);
-            this.tableLayoutPanelGroupParam.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tableLayoutPanelGroupParam.Name = "tableLayoutPanelGroupParam";
-            this.tableLayoutPanelGroupParam.RowCount = 2;
-            this.tableLayoutPanelGroupParam.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelGroupParam.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelGroupParam.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelGroupParam.Size = new System.Drawing.Size(1600, 138);
-            this.tableLayoutPanelGroupParam.TabIndex = 2;
+            this.tableLayoutPanelParam.AutoSize = true;
+            this.tableLayoutPanelParam.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableLayoutPanelParam.BackColor = System.Drawing.SystemColors.Control;
+            this.tableLayoutPanelParam.ColumnCount = 1;
+            this.tableLayoutPanelParam.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelParam.Controls.Add(this.tableLayoutPanelParamTop, 0, 0);
+            this.tableLayoutPanelParam.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelParam.Location = new System.Drawing.Point(10, 33);
+            this.tableLayoutPanelParam.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanelParam.Name = "tableLayoutPanelParam";
+            this.tableLayoutPanelParam.RowCount = 2;
+            this.tableLayoutPanelParam.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelParam.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelParam.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelParam.Size = new System.Drawing.Size(1600, 138);
+            this.tableLayoutPanelParam.TabIndex = 2;
             // 
-            // tableLayoutPanelDest
+            // tableLayoutPanelParamTop
             // 
-            this.tableLayoutPanelDest.AutoSize = true;
-            this.tableLayoutPanelDest.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanelDest.BackColor = System.Drawing.SystemColors.Control;
-            this.tableLayoutPanelDest.ColumnCount = 3;
-            this.tableLayoutPanelDest.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanelDest.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelDest.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanelDest.Controls.Add(this.labelSrc, 0, 0);
-            this.tableLayoutPanelDest.Controls.Add(this.textBoxSrc, 1, 0);
-            this.tableLayoutPanelDest.Controls.Add(this.buttonSrcBrowse, 2, 0);
-            this.tableLayoutPanelDest.Controls.Add(this.labelDest, 0, 1);
-            this.tableLayoutPanelDest.Controls.Add(this.textBoxDest, 1, 1);
-            this.tableLayoutPanelDest.Controls.Add(this.buttonFileBrowse, 2, 1);
-            this.tableLayoutPanelDest.Controls.Add(this.labelRes, 0, 3);
-            this.tableLayoutPanelDest.Controls.Add(this.textBoxRes, 1, 3);
-            this.tableLayoutPanelDest.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelDest.Location = new System.Drawing.Point(3, 2);
-            this.tableLayoutPanelDest.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tableLayoutPanelDest.Name = "tableLayoutPanelDest";
-            this.tableLayoutPanelDest.RowCount = 4;
-            this.tableLayoutPanelDest.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelDest.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelDest.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelDest.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelDest.Size = new System.Drawing.Size(1594, 134);
-            this.tableLayoutPanelDest.TabIndex = 2;
+            this.tableLayoutPanelParamTop.AutoSize = true;
+            this.tableLayoutPanelParamTop.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableLayoutPanelParamTop.BackColor = System.Drawing.SystemColors.Control;
+            this.tableLayoutPanelParamTop.ColumnCount = 3;
+            this.tableLayoutPanelParamTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanelParamTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelParamTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanelParamTop.Controls.Add(this.labelPdf, 0, 0);
+            this.tableLayoutPanelParamTop.Controls.Add(this.textBoxPdf, 1, 0);
+            this.tableLayoutPanelParamTop.Controls.Add(this.buttonPdfBrowse, 2, 0);
+            this.tableLayoutPanelParamTop.Controls.Add(this.labelOut, 0, 1);
+            this.tableLayoutPanelParamTop.Controls.Add(this.textBoxOut, 1, 1);
+            this.tableLayoutPanelParamTop.Controls.Add(this.buttonOutBrowse, 2, 1);
+            this.tableLayoutPanelParamTop.Controls.Add(this.labelRes, 0, 3);
+            this.tableLayoutPanelParamTop.Controls.Add(this.textBoxRes, 1, 3);
+            this.tableLayoutPanelParamTop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelParamTop.Location = new System.Drawing.Point(3, 2);
+            this.tableLayoutPanelParamTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanelParamTop.Name = "tableLayoutPanelParamTop";
+            this.tableLayoutPanelParamTop.RowCount = 4;
+            this.tableLayoutPanelParamTop.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelParamTop.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelParamTop.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelParamTop.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelParamTop.Size = new System.Drawing.Size(1594, 134);
+            this.tableLayoutPanelParamTop.TabIndex = 2;
             // 
-            // labelSrc
+            // labelPdf
             // 
-            this.labelSrc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.labelPdf.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelSrc.AutoSize = true;
-            this.labelSrc.BackColor = System.Drawing.SystemColors.Control;
-            this.labelSrc.Location = new System.Drawing.Point(3, 0);
-            this.labelSrc.Name = "labelSrc";
-            this.labelSrc.Size = new System.Drawing.Size(79, 46);
-            this.labelSrc.TabIndex = 8;
-            this.labelSrc.Text = "PDF:";
-            this.labelSrc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelPdf.AutoSize = true;
+            this.labelPdf.BackColor = System.Drawing.SystemColors.Control;
+            this.labelPdf.Location = new System.Drawing.Point(3, 0);
+            this.labelPdf.Name = "labelPdf";
+            this.labelPdf.Size = new System.Drawing.Size(79, 46);
+            this.labelPdf.TabIndex = 8;
+            this.labelPdf.Text = "PDF:";
+            this.labelPdf.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // textBoxSrc
+            // textBoxPdf
             // 
-            this.textBoxSrc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxSrc.Location = new System.Drawing.Point(168, 2);
-            this.textBoxSrc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxSrc.Name = "textBoxSrc";
-            this.textBoxSrc.Size = new System.Drawing.Size(1298, 38);
-            this.textBoxSrc.TabIndex = 9;
+            this.textBoxPdf.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxPdf.Location = new System.Drawing.Point(168, 2);
+            this.textBoxPdf.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxPdf.Name = "textBoxPdf";
+            this.textBoxPdf.Size = new System.Drawing.Size(1298, 38);
+            this.textBoxPdf.TabIndex = 9;
             // 
-            // buttonSrcBrowse
+            // buttonPdfBrowse
             // 
-            this.buttonSrcBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.buttonSrcBrowse.AutoSize = true;
-            this.buttonSrcBrowse.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonSrcBrowse.BackColor = System.Drawing.SystemColors.Control;
-            this.buttonSrcBrowse.Location = new System.Drawing.Point(1472, 2);
-            this.buttonSrcBrowse.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonSrcBrowse.Name = "buttonSrcBrowse";
-            this.buttonSrcBrowse.Size = new System.Drawing.Size(119, 42);
-            this.buttonSrcBrowse.TabIndex = 10;
-            this.buttonSrcBrowse.Text = "Browse";
-            this.buttonSrcBrowse.UseVisualStyleBackColor = false;
-            this.buttonSrcBrowse.Click += new System.EventHandler(this.onBrowsePdfClick);
+            this.buttonPdfBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.buttonPdfBrowse.AutoSize = true;
+            this.buttonPdfBrowse.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonPdfBrowse.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonPdfBrowse.Location = new System.Drawing.Point(1472, 2);
+            this.buttonPdfBrowse.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonPdfBrowse.Name = "buttonPdfBrowse";
+            this.buttonPdfBrowse.Size = new System.Drawing.Size(119, 42);
+            this.buttonPdfBrowse.TabIndex = 10;
+            this.buttonPdfBrowse.Text = "Browse";
+            this.buttonPdfBrowse.UseVisualStyleBackColor = false;
+            this.buttonPdfBrowse.Click += new System.EventHandler(this.onBrowsePdfClick);
             // 
-            // labelDest
+            // labelOut
             // 
-            this.labelDest.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.labelOut.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelDest.AutoSize = true;
-            this.labelDest.BackColor = System.Drawing.SystemColors.Control;
-            this.labelDest.Location = new System.Drawing.Point(3, 46);
-            this.labelDest.Name = "labelDest";
-            this.labelDest.Size = new System.Drawing.Size(109, 46);
-            this.labelDest.TabIndex = 0;
-            this.labelDest.Text = "Output:";
-            this.labelDest.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelOut.AutoSize = true;
+            this.labelOut.BackColor = System.Drawing.SystemColors.Control;
+            this.labelOut.Location = new System.Drawing.Point(3, 46);
+            this.labelOut.Name = "labelOut";
+            this.labelOut.Size = new System.Drawing.Size(109, 46);
+            this.labelOut.TabIndex = 0;
+            this.labelOut.Text = "Output:";
+            this.labelOut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // textBoxDest
+            // textBoxOut
             // 
-            this.textBoxDest.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxDest.Location = new System.Drawing.Point(168, 48);
-            this.textBoxDest.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxDest.Name = "textBoxDest";
-            this.textBoxDest.Size = new System.Drawing.Size(1298, 38);
-            this.textBoxDest.TabIndex = 1;
+            this.textBoxOut.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxOut.Location = new System.Drawing.Point(168, 48);
+            this.textBoxOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxOut.Name = "textBoxOut";
+            this.textBoxOut.Size = new System.Drawing.Size(1298, 38);
+            this.textBoxOut.TabIndex = 1;
             // 
-            // buttonFileBrowse
+            // buttonOutBrowse
             // 
-            this.buttonFileBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.buttonFileBrowse.AutoSize = true;
-            this.buttonFileBrowse.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonFileBrowse.BackColor = System.Drawing.SystemColors.Control;
-            this.buttonFileBrowse.Location = new System.Drawing.Point(1472, 48);
-            this.buttonFileBrowse.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonFileBrowse.Name = "buttonFileBrowse";
-            this.buttonFileBrowse.Size = new System.Drawing.Size(119, 42);
-            this.buttonFileBrowse.TabIndex = 2;
-            this.buttonFileBrowse.Text = "Browse";
-            this.buttonFileBrowse.UseVisualStyleBackColor = false;
-            this.buttonFileBrowse.Click += new System.EventHandler(this.onBrowseDestClick);
+            this.buttonOutBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.buttonOutBrowse.AutoSize = true;
+            this.buttonOutBrowse.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonOutBrowse.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonOutBrowse.Location = new System.Drawing.Point(1472, 48);
+            this.buttonOutBrowse.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonOutBrowse.Name = "buttonOutBrowse";
+            this.buttonOutBrowse.Size = new System.Drawing.Size(119, 42);
+            this.buttonOutBrowse.TabIndex = 2;
+            this.buttonOutBrowse.Text = "Browse";
+            this.buttonOutBrowse.UseVisualStyleBackColor = false;
+            this.buttonOutBrowse.Click += new System.EventHandler(this.onBrowseDestClick);
             // 
             // labelRes
             // 
@@ -313,10 +313,10 @@
             this.tableLayoutPanelTop.PerformLayout();
             this.groupBoxParam.ResumeLayout(false);
             this.groupBoxParam.PerformLayout();
-            this.tableLayoutPanelGroupParam.ResumeLayout(false);
-            this.tableLayoutPanelGroupParam.PerformLayout();
-            this.tableLayoutPanelDest.ResumeLayout(false);
-            this.tableLayoutPanelDest.PerformLayout();
+            this.tableLayoutPanelParam.ResumeLayout(false);
+            this.tableLayoutPanelParam.PerformLayout();
+            this.tableLayoutPanelParamTop.ResumeLayout(false);
+            this.tableLayoutPanelParamTop.PerformLayout();
             this.flowLayoutPanelButtons.ResumeLayout(false);
             this.flowLayoutPanelButtons.PerformLayout();
             this.ResumeLayout(false);
@@ -328,20 +328,20 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelTop;
         private System.Windows.Forms.GroupBox groupBoxParam;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelGroupParam;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelDest;
-        private System.Windows.Forms.Label labelDest;
-        private System.Windows.Forms.TextBox textBoxDest;
-        private System.Windows.Forms.Button buttonFileBrowse;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelParam;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelParamTop;
+        private System.Windows.Forms.Label labelOut;
+        private System.Windows.Forms.TextBox textBoxOut;
+        private System.Windows.Forms.Button buttonOutBrowse;
         private System.Windows.Forms.Label labelRes;
         private System.Windows.Forms.TextBox textBoxRes;
         private System.Windows.Forms.TextBox textBoxInfo;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelButtons;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonQuit;
-        private System.Windows.Forms.Label labelSrc;
-        private System.Windows.Forms.TextBox textBoxSrc;
-        private System.Windows.Forms.Button buttonSrcBrowse;
+        private System.Windows.Forms.Label labelPdf;
+        private System.Windows.Forms.TextBox textBoxPdf;
+        private System.Windows.Forms.Button buttonPdfBrowse;
         private System.Windows.Forms.Button buttonSettings;
     }
 }

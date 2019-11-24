@@ -23,9 +23,9 @@ namespace SavePdfImage {
             set
             {
                 outpath = value;
-                textBoxDest.Text = value;
-                textBoxDest.SelectionStart = textBoxDest.Text.Length;
-                textBoxDest.SelectionLength = 0;
+                textBoxOut.Text = value;
+                textBoxOut.SelectionStart = textBoxOut.Text.Length;
+                textBoxOut.SelectionLength = 0;
             }
         }
 
@@ -35,9 +35,9 @@ namespace SavePdfImage {
             set
             {
                 pdfPath = value;
-                textBoxSrc.Text = value;
-                textBoxSrc.SelectionStart = textBoxSrc.Text.Length;
-                textBoxSrc.SelectionLength = 0;
+                textBoxPdf.Text = value;
+                textBoxPdf.SelectionStart = textBoxPdf.Text.Length;
+                textBoxPdf.SelectionLength = 0;
                 string outDir = Path.GetDirectoryName(OutPath);
                 string outName = Path.GetFileName(pdfPath);
                 string outExt = Path.GetExtension(pdfPath);
@@ -58,14 +58,14 @@ namespace SavePdfImage {
                 resolution = savedResolution;
             }
 
-            if (OutPath != null) textBoxDest.Text = OutPath;
+            if (OutPath != null) textBoxOut.Text = OutPath;
             // Do this after OutPath
-            if (PdfPath != null) textBoxSrc.Text = PdfPath;
+            if (PdfPath != null) textBoxPdf.Text = PdfPath;
             textBoxRes.Text = resolution.ToString();
         }
 
         private void onSaveClick(object sender, EventArgs e) {
-            string pdfPath = textBoxSrc.Text;
+            string pdfPath = textBoxPdf.Text;
             textBoxInfo.AppendText("Processing " + pdfPath + NL);
             if (!File.Exists(pdfPath)) {
                 textBoxInfo.AppendText(NL + "Does not exist: " + pdfPath
@@ -80,7 +80,7 @@ namespace SavePdfImage {
                 textBoxInfo.AppendText(NL + "Aborted" + NL + NL);
                 return;
             }
-            string outPath = textBoxDest.Text;
+            string outPath = textBoxOut.Text;
             string outPathDir = Path.GetDirectoryName(outPath);
             string outPathExt = Path.GetExtension(outPath);
             if (!Directory.Exists(outPathDir)) {
@@ -183,7 +183,7 @@ namespace SavePdfImage {
         }
 
         private void onBrowsePdfClick(object sender, EventArgs e) {
-            string initialPath = textBoxSrc.Text;
+            string initialPath = textBoxPdf.Text;
             OpenFileDialog dlg = new OpenFileDialog();
             dlg.Title = "Select a PDF File";
             dlg.Filter = "PDF File|*.pdf";
@@ -198,7 +198,7 @@ namespace SavePdfImage {
         }
 
         private void onBrowseDestClick(object sender, EventArgs e) {
-            string initialPath = textBoxDest.Text;
+            string initialPath = textBoxOut.Text;
             SaveFileDialog dlg = new SaveFileDialog();
             dlg.Title = "Select an Output File";
             dlg.Filter = "PNG Image|*.png";
@@ -227,7 +227,7 @@ namespace SavePdfImage {
             if (gsPath != null && gsPath.Length > 0) {
                 Properties.Settings.Default.GhostScriptExe = gsPath;
             }
-            string text = textBoxDest.Text;
+            string text = textBoxOut.Text;
             if (text != null && text.Length > 0) {
                 Properties.Settings.Default.OutputDir =
                     Path.GetDirectoryName(text);
